@@ -60,6 +60,7 @@ urban-green-heat-planner/
 ├── .env                    # SECRETS - git-ignored, never commit
 ├── .env.example            # safe-to-commit template
 ├── .gitignore
+├── .gitattributes          # line-ending normalisation
 ├── .claude/launch.json     # preview-server configs (shell workaround)
 ├── data/
 │   ├── raw/                # unmodified source datasets
@@ -67,13 +68,32 @@ urban-green-heat-planner/
 ├── scripts/
 │   ├── test_fortyguard.py  # full submit->poll pipeline test (WORKING)
 │   ├── setup_and_test.ps1  # install deps + run test
-│   └── run_test.ps1        # run test only
+│   ├── run_test.ps1        # run test only
+│   ├── git_setup.ps1       # init + ignore verification + commit
+│   ├── git_push.ps1        # push to origin
+│   └── git_sync.ps1        # stage + secret gate + commit + push
 └── app/                    # Streamlit dashboard (empty, not started)
 ```
 
-**Git is not initialized yet.** `.gitignore` exists and is correct, but there is
-no `.git` directory — nothing has ever been committed. Run `git init` before
-relying on version control.
+## Git / GitHub
+
+Initialised and pushed. Default branch **`main`**.
+
+```
+origin  https://github.com/TehreemAyesha/Urban-Green-Cover-Heat-Mitigation-Planner.git
+```
+
+Auth is **HTTPS via Git Credential Manager, already cached** — pushes succeed
+without prompting. Do not switch to SSH; there is no keypair on this machine.
+
+To commit and push further work, use the `git-sync` preview config (it stages,
+runs a secret gate, commits, and pushes). Git itself works fine when launched
+via PowerShell — only bash is broken.
+
+**Secret gate:** `git_setup.ps1` / `git_sync.ps1` refuse to commit if `.env`, any
+`*.log` / `*_log.txt`, or the literal API key value appears in staged content.
+The key is read from `.env` at runtime, so the scripts never contain it. Keep
+this gate in any future git helper.
 
 ---
 
@@ -219,9 +239,9 @@ Done:
 - [x] All 9 dependencies installed and verified (Python 3.13.5, 107 packages)
 - [x] FortyGuard pipeline **working end to end**: submit → poll → temperature stats
 - [x] PowerShell workaround built for the broken bash
+- [x] Git initialised, committed, and pushed to GitHub (`main`)
 
 Not started:
-- [ ] `git init` — no repository yet
 - [ ] GEE authentication for `greenhouse-66798` (untested)
 - [ ] NDVI / green-cover pull script (`scripts/` — nothing written)
 - [ ] City-scale FortyGuard pull (see the small-AOI finding above)
