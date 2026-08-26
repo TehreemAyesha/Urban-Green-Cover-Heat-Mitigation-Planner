@@ -1,0 +1,19 @@
+# Normalise line endings so the repo is consistent regardless of who clones it.
+# Without this, Git warns on every Windows commit that LF will become CRLF.
+
+# Default: let Git decide, and store text as LF in the repository.
+* text=auto eol=lf
+
+# PowerShell and batch files are Windows-only; keep them CRLF on checkout.
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary / data formats Git must never try to convert.
+*.png binary
+*.jpg binary
+*.tif binary
+*.tiff binary
+*.parquet binary
+*.gpkg binary
+*.zip binary

@@ -1,0 +1,19 @@
+# Urban Green Cover Heat Mitigation Planner — Python dependencies
+# Install with:  pip install -r requirements.txt
+
+# Google Earth Engine (satellite imagery, land surface temperature, NDVI)
+geemap
+earthengine-api
+
+# Geospatial data handling
+geopandas
+rasterio
+
+# Dashboard / visualization
+streamlit
+pydeck
+
+# HTTP + data + config
+requests
+pandas
+python-dotenv

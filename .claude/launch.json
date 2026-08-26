@@ -1,0 +1,41 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "setup-and-test",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\claude code projects\\urban-green-heat-planner\\scripts\\setup_and_test.ps1"
+      ],
+      "port": 8765
+    },
+    {
+      "name": "run-test",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\claude code projects\\urban-green-heat-planner\\scripts\\run_test.ps1"
+      ],
+      "port": 8766
+    },
+    {
+      "name": "git-setup",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\claude code projects\\urban-green-heat-planner\\scripts\\git_setup.ps1"
+      ],
+      "port": 8767
+    }
+  ]
+}

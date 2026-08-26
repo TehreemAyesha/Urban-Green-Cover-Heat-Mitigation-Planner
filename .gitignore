@@ -1,0 +1,71 @@
+# ---- Secrets / environment ----
+.env
+.env.*
+!.env.example
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+ENV/
+
+# ---- Earth Engine / credentials ----
+*.json.key
+.config/earthengine/
+service-account*.json
+
+# ---- Data artifacts (keep folders via .gitkeep, ignore large files) ----
+data/raw/*
+data/processed/*
+!data/**/.gitkeep
+
+# Rasters / imagery
+*.tif
+*.tiff
+*.jp2
+*.img
+*.vrt
+*.nc
+*.hdf
+*.h5
+
+# Vector / tabular data dumps
+*.geojson
+*.parquet
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+# Archives
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.gz
+
+# ---- Local run logs ----
+*.log
+run_log.txt
+install_log.txt
+git_log.txt
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
