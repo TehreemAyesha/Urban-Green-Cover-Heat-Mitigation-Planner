@@ -36,6 +36,30 @@
         "C:\\claude code projects\\urban-green-heat-planner\\scripts\\git_setup.ps1"
       ],
       "port": 8767
+    },
+    {
+      "name": "git-push",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\claude code projects\\urban-green-heat-planner\\scripts\\git_push.ps1"
+      ],
+      "port": 8768
+    },
+    {
+      "name": "git-sync",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\claude code projects\\urban-green-heat-planner\\scripts\\git_sync.ps1"
+      ],
+      "port": 8769
     }
   ]
 }
